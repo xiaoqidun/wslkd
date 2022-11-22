@@ -11,7 +11,7 @@ import (
 func main() {
 	var d string
 	flag.StringVar(&d, "d", "Debian", "distribution")
-	flag.Parsed()
+	flag.Parse()
 	waitGroup := &sync.WaitGroup{}
 	distroList := strings.Split(d, ",")
 	for i := 0; i < len(distroList); i++ {
