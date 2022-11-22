@@ -4,8 +4,10 @@ import (
 	"flag"
 	"github.com/xiaoqidun/gowsl"
 	"log"
+	"os"
 	"strings"
 	"sync"
+	"syscall"
 )
 
 func main() {
@@ -32,6 +34,10 @@ func exec(done *sync.WaitGroup, distro string) {
 		return
 	}
 	cmd := gowsl.Command(distro, "/bin/bash")
+	cmd.Stdin = os.Stdin
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	cmd.SysProcAttr = &syscall.SysProcAttr{HideWindow: true}
 	if err := cmd.Run(); err != nil {
 		log.Printf("%v cmd run err: %v", distro, err)
 	}
