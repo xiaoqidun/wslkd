@@ -33,7 +33,7 @@ func exec(done *sync.WaitGroup, distro string) {
 		log.Printf("%v does not exist\n", distro)
 		return
 	}
-	cmd := gowsl.Command(distro, "/bin/bash")
+	cmd := gowsl.Command(distro, "", "/bin/bash")
 	cmd.Stdin = os.Stdin
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
