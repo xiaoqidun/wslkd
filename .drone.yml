@@ -3,15 +3,18 @@ kind: pipeline
 type: docker
 name: default
 
+node:
+  region: cn
+
 steps:
   - name: build
     pull: if-not-exists
-    image: hkccr.ccs.tencentyun.com/xiaoqidun/goenv
+    image: ccr.ccs.tencentyun.com/xiaoqidun/goenv
     commands:
       - chmod +x build.sh
       - ./build.sh
   - name: upload
-    image: hkccr.ccs.tencentyun.com/xiaoqidun/gocos
+    image: ccr.ccs.tencentyun.com/xiaoqidun/gocos
     settings:
       secret_id:
         from_secret: cos_secret_id
