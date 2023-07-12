@@ -12,6 +12,7 @@ steps:
       - chmod +x build.sh
       - ./build.sh
   - name: upload
+    pull: if-not-exists
     image: ccr.ccs.tencentyun.com/xiaoqidun/gocos
     settings:
       secret_id:
