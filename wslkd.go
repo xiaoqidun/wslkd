@@ -39,6 +39,6 @@ func exec(done *sync.WaitGroup, distro string) {
 	cmd.Stderr = os.Stderr
 	cmd.SysProcAttr = &syscall.SysProcAttr{HideWindow: true}
 	if err := cmd.Run(); err != nil {
-		log.Printf("%v cmd run err: %v", distro, err)
+		log.Printf("%v cmd run err: %v\n", distro, err)
 	}
 }
