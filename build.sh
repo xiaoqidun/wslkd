@@ -1,2 +1,2 @@
-GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -o release/wslkd_amd64.exe -trimpath -ldflags '-H windowsgui -s -w' wslkd.go
-GOOS=windows GOARCH=arm64 CGO_ENABLED=0 go build -o release/wslkd_arm64.exe -trimpath -ldflags '-H windowsgui -s -w' wslkd.go
+GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -o release/wslkd_amd64.exe -trimpath -ldflags "-H windowsgui -s -w -buildid=" wslkd.go
+GOOS=windows GOARCH=arm64 CGO_ENABLED=0 go build -o release/wslkd_arm64.exe -trimpath -ldflags "-H windowsgui -s -w -buildid=" wslkd.go
